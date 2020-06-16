@@ -184,8 +184,8 @@ options = trainingOptions('sgdm', ...
 %detector. We will decide on a confidence rating to maximise the possible
 %false postitive to precision ratio.
 
-image=half_scale("G:\data-sets-kaggle\wheat-detector\test\53f253011.jpg");
-[bbox,score]=detect(detector,image,'Threshold',0.58);
+image=half_scale("G:\data-sets-kaggle\wheat-detector\test\2fd875eaa.jpg");
+[bbox,score]=detect(detector,image,'Threshold',0.585);
 [selbox,selscore]=selectStrongestBbox(bbox,score,'RatioType','Min','OverlapThreshold',0.5);
 hold on 
 imshow(image)
@@ -193,6 +193,9 @@ for i=1:length(selbox)
     rectangle('Position',selbox(i,:))
 end
 hold off
+
+num_iterations = 40;
+grouped_bboxes=stochastic_SOM(selbox,num_iterations);
 
 %% more training
 %it seems we're doing well, more trainin is necessary
