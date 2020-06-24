@@ -52,7 +52,10 @@ weights after the first epoch. The rate is set to 80% of each previous epoch.
 ### Results
 The network performed very well and also awfull simultaneously. It correctly identified all the areas which contained wheat heads, but used a multitude of bounding boxes to
 obtain this. I attempted grouping these various bounding boxed using an SOM(self-organising map) which has interesting results. Below is an example showing an example of the
-detection yielded from this detector.
+detection yielded from this detector, below that an example of the ground truth:
+![gtruth image](https://github.com/ArthurBuckingdale/kaggle-competitions/blob/master/wheat_predictor/images/g_truth.PNG)
+Below is the resulting image from the detector
+![det image](https://github.com/ArthurBuckingdale/kaggle-competitions/blob/master/wheat_predictor/images/cv_2_20.PNG)
 
 ### Conclusions
 SSDs are interesting detectors and I expected the ability to use larger batch sizes for this challenge. Even with 512x512 images, the RAM is completely filled. 
